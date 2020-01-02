@@ -4,7 +4,21 @@
 	},
 	"login": {
 		"modal": {
-			"title": "Willkommen!"
+			"button": {
+				"forgotPassword": "Passwort vergessen",
+				"login": "Anmelden"
+			},
+			"label": {
+				"enterEmail": "Gib deine EMail-Adresse ein",
+				"enterPassword": "Gib dein Passwort ein"
+			},
+			"title": "Willkommen!",
+			"validation": {
+				"emailInvalid": "Emailadresse ist ungültig",
+				"emailRequired": "Emailadresse ist erforderlich",
+				"passwordRequired": "Passwort ist erforderlich",
+				"passwordTooShort": "Passwort sollte mindestens {passwordMinLength} Zeichen lang sein"
+			}
 		}
 	},
 	"tab": {

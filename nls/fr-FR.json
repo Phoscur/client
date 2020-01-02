@@ -4,7 +4,21 @@
 	},
 	"login": {
 		"modal": {
-			"title": "Bienvenue!"
+			"button": {
+				"forgotPassword": "Mot de passe oublié",
+				"login": ""
+			},
+			"label": {
+				"enterEmail": "",
+				"enterPassword": ""
+			},
+			"title": "Bienvenue!",
+			"validation": {
+				"emailInvalid": "",
+				"emailRequired": "",
+				"passwordRequired": "",
+				"passwordTooShort": ""
+			}
 		}
 	},
 	"tab": {

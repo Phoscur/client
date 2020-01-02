@@ -1,5 +1,6 @@
 <template>
   <v-app dark>
+    <login-component v-if="isLoggedIn"></login-component>
     <v-navigation-drawer
       :mini-variant.sync="miniVariant"
       :clipped="clipped"
@@ -68,6 +69,8 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { mapGetters } from "vuex";
+import LoginComponent from "./components/Login.vue";
 
 export default Vue.extend({
   name: "App",
@@ -87,6 +90,12 @@ export default Vue.extend({
       right: true,
       rightDrawer: false,
     };
+  },
+  computed: {
+    ...mapGetters("user", ["isLoggedIn"]),
+  },
+  components: {
+    LoginComponent,
   },
 });
 </script>
