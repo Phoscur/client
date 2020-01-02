@@ -1,0 +1,14 @@
+{
+	"app": {
+		"title": "UGamela"
+	},
+	"login": {
+		"modal": {
+			"title": "¡Bienvenido!"
+		}
+	},
+	"tab": {
+		"empire": "Imperio",
+		"overview": "Visión general"
+	}
+}

@@ -19,7 +19,7 @@
             <v-icon v-html="item.icon"></v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title v-text="item.title"></v-list-item-title>
+            <v-list-item-title v-t="'tab.' + item.title"></v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -37,7 +37,7 @@
       <v-btn icon @click.stop="fixed = !fixed">
         <v-icon>remove</v-icon>
       </v-btn>
-      <v-toolbar-title v-text="title"></v-toolbar-title>
+      <v-toolbar-title v-t="'app.title'"></v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>menu</v-icon>
@@ -80,13 +80,12 @@ export default Vue.extend({
       drawer: null,
       fixed: false,
       items: [
-        { icon: "apps", title: "Welcome", to: "/" },
-        { icon: "bubble_chart", title: "Inspire", to: "/inspire" },
+        { icon: "apps", title: "overview", to: "/" },
+        { icon: "bubble_chart", title: "empire", to: "/empire" },
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: "Vuetify.js",
     };
   },
 });
