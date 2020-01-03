@@ -2,6 +2,12 @@
 	"app": {
 		"title": "UGamela"
 	},
+	"game": {
+		"config": {
+			"startResources": "Starting resources: {metalStart} metal, {crystalStart} crystal, {deuteriumStart} deuterium",
+			"title": "Game configuration"
+		}
+	},
 	"login": {
 		"modal": {
 			"button": {

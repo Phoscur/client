@@ -1,6 +1,8 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div class="gameConfig">
+    <h2 v-t="'game.config.title'" />
+    <p v-t="{ path: 'game.config.startResources', args: config }" />
+    {{ config }}
   </div>
 </template>
 
@@ -8,9 +10,9 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  name: "HelloWorld",
+  name: "GameConfig",
   props: {
-    msg: String,
+    config: Object,
   },
 });
 </script>

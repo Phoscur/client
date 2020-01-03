@@ -1,5 +1,24 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="empireView">
+    <h1>Empire</h1>
+    {{ units }}
   </div>
 </template>
+
+<script lang="ts">
+import Vue from "vue";
+import { mapActions, mapGetters } from "vuex";
+
+export default Vue.extend({
+  name: "Empire",
+  mounted() {
+    this.getUnits();
+  },
+  computed: {
+    ...mapGetters("user", ["units"]),
+  },
+  methods: {
+    ...mapActions("user", ["getUnits"]),
+  },
+});
+</script>
