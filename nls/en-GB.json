@@ -18,13 +18,25 @@
 				"enterEmail": "Enter your e-mail address",
 				"enterPassword": "Enter your password"
 			},
-			"title": "Welcome!",
+      "title": "Welcome, please login!",
+      "registerTitle": "Register",
 			"validation": {
 				"emailInvalid": "E-mail must be valid",
 				"emailRequired": "E-mail is required",
 				"passwordRequired": "Password is required",
 				"passwordTooShort": "Password should be at least {passwordMinLength} letters long"
 			}
+		},
+		"register": {
+			"label": {
+        "enterUsername": "Choose a username"
+      },
+			"validation": {
+        "usernameRequired": "Username is required"
+      },
+			"start": "Would you like to register instead?",
+			"title": "Register",
+			"button": "Register"
 		}
 	},
 	"tab": {

@@ -2,16 +2,27 @@
   <v-container fluid fill-height class="loginOverlay">
     <v-layout flex align-center justify-center>
       <v-flex xs12 sm4 elevation-6>
-        <v-toolbar class="pt-5 blue darken-4">
-          <v-toolbar-title class="white--text">
-            <h4 v-t="'login.modal.title'" />
-          </v-toolbar-title>
-          <v-toolbar-items></v-toolbar-items>
+        <v-toolbar extended> 
+          <v-toolbar-items>
+            <v-btn icon v-show="register" @click="register = !register">
+              <v-icon>back</v-icon>
+            </v-btn>
+          </v-toolbar-items>
+          <v-toolbar-title><span v-t="register ? 'login.register.title' : 'login.modal.title'" /></v-toolbar-title>           
         </v-toolbar>
-        <v-card>
-          <v-card-text class="pt-4">
+        <v-card class="loginModal">
+          <v-card-text class="pt-6">
             <div>
+              <a name="registering" v-t="'login.register.start'" @click="register = !register" v-show="!register"/>
               <v-form v-model="valid" ref="form">
+                <v-text-field
+                  v-show="register"
+                  :label="$t('login.register.label.enterUsername')"
+                  name="username"
+                  v-model="username"
+                  :rules="usernameRules"
+                  required
+                ></v-text-field>
                 <v-text-field
                   :label="$t('login.modal.label.enterEmail')"
                   name="email"
@@ -33,12 +44,12 @@
                 ></v-text-field>
                 <v-layout justify-space-between>
                   <v-btn
-                    name="login"
+                    name="submit"
                     @click="submit"
                     :class=" { 'blue darken-4 white--text' : valid, disabled: !valid }"
-                    v-t="'login.modal.button.login'"
+                    v-t="register ? 'login.register.button' : 'login.modal.button.login'"
                   />
-                  <a href v-t="'login.modal.button.forgotPassword'" name="passwordForgotten" />
+                  <a href v-t="'login.modal.button.forgotPassword'" name="passwordForgotten" v-show="!register" />
                 </v-layout>
               </v-form>
             </div>
@@ -56,19 +67,23 @@ export default Vue.extend({
   name: "Login",
   data() {
     return {
+      register: false,
       valid: false,
       showPassword: false,
+      username: "",
+      usernameRules: [
+        (v: string) => !!v || this.$t("login.register.validation.usernameRequired"),
+      ],
       password: "",
       passwordRules: [
         (v: string) => !!v || this.$t("login.modal.validation.passwordRequired"),
-        (v: string) => v.length >= 8 || this.$t("login.modal.validation.passwordTooShort", { passwordMinLength: 8}),
+        (v: string) => v.length >= 8 || this.$t("login.modal.validation.passwordTooShort", { passwordMinLength: 8 }),
       ],
       email: "",
       emailRules: [
         (v: string) => !!v || this.$t("login.modal.validation.emailRequired"),
         (v: string) =>
-          /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v)
-          || this.$t("login.modal.validation.emailInvalid"),
+          /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || this.$t("login.modal.validation.emailInvalid"),
       ],
     };
   },
@@ -102,5 +117,8 @@ li {
 }
 a {
   color: #42b983;
+}
+.loginOverlay {
+  z-index: 6;
 }
 </style>

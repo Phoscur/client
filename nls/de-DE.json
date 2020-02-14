@@ -19,12 +19,24 @@
 				"enterPassword": "Gib dein Passwort ein"
 			},
 			"title": "Willkommen!",
+      "registerTitle": "Registerieren",
 			"validation": {
 				"emailInvalid": "Emailadresse ist ungültig",
 				"emailRequired": "Emailadresse ist erforderlich",
 				"passwordRequired": "Passwort ist erforderlich",
 				"passwordTooShort": "Passwort sollte mindestens {passwordMinLength} Zeichen lang sein"
 			}
+		},
+		"register": {
+			"label": {
+        "enterUsername": "Wähle einen Spielernamen"
+      },
+			"validation": {
+        "usernameRequired": "Wähle einen Spielernamen!"
+      },
+			"start": "Stattdessen registrieren?",
+			"title": "Registrieren",
+			"button": "Registrieren"
 		}
 	},
 	"tab": {
