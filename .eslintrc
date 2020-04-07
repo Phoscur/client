@@ -8,9 +8,22 @@
     "@vue/typescript"
   ],
   "rules": {
-    "comma-dangle": ["error", "always-multiline"]
+    "comma-dangle": [
+      "error",
+      "always-multiline"
+    ]
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts"]
+    }
   },
   "parserOptions": {
-    "parser": "@typescript-eslint/parser"
+    "parser": "@typescript-eslint/parser",
+    "project": [
+      "./tsconfig.json"
+    ],
+    "ecmaVersion": 2018,
+    "sourceType": "module"
   }
 }
