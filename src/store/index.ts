@@ -3,7 +3,7 @@ import Vue from "vue";
 import Vuex, { ActionTree, MutationTree, GetterTree } from "vuex";
 import { RootState, UserState } from "./types";
 
-import { getUnits, getGameConfig } from "./api";
+import { getUnits, getStartConfiguration } from "./api";
 
 Vue.use(Vuex);
 
@@ -29,7 +29,7 @@ const user = {
       return units;
     },
     async getConfig({ commit }) {
-      const config = await getGameConfig();
+      const config = await getStartConfiguration();
       commit("config", config);
       return config;
     },
