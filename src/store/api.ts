@@ -1,21 +1,37 @@
 
 import { request, camelizeResponse, responseData } from "./request";
+import { GameConfiguration } from "@/models";
 
-const baseUrl = "http://localhost:3000/v1";
+const baseUrl = "/v1";
+// const baseUrl = "http://localhost:3000/v1";
 
 const config = { withCredentials: true };
 
-export async function getGameConfig() {
-  return request.get(baseUrl + "/config/game", config)
+let configCache: Promise<GameConfiguration>;
+
+async function getConfig() {
+  if (configCache) {
+    return configCache;
+  }
+  configCache = request.get(baseUrl + "/config", config)
     .then(responseData)
     .then(camelizeResponse);
+  return configCache;
+}
+
+export async function getGameSpeed() {
+  return getConfig()
+  .then((configuration) => configuration.speed);
+}
+
+export async function getStartConfiguration() {
+  return getConfig()
+  .then((configuration) => configuration.start);
 }
 
 export function getUnits() {
-  return request.get(baseUrl + "/config/units", config)
-    .then(responseData)
-    // interestingly, don't need a camelize here.. yet
-    .then((data) => data.units);
+  return getConfig()
+  .then((configuration) => configuration.units);
 }
 
 export function getPlanets() {

@@ -4,7 +4,7 @@
 	},
 	"game": {
 		"config": {
-			"startResources": "Startresourcen: {metalStart} Metall, {crystalStart} Kristall, {deuteriumStart} Deuterium",
+			"startResources": "Startresourcen: {metal} Metall, {crystal} Kristall, {deuterium} Deuterium",
 			"title": "Spielkonfiguration"
 		}
 	},
